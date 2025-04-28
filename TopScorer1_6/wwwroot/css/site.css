@@ -1,0 +1,921 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    width: min(100%, 100%);
+    background: white;
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: #8e8e8e;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/*search bar*/
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.box {
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.input-searchbar {
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: width 0.8s ease;
+    background: transparent;
+}
+
+/*остава разгънат search bar-a, когато има написан текст*/
+.box:hover .input-searchbar,
+.box.active .input-searchbar {
+    width: 300px;
+}
+
+.search-icon img {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.search-btn {
+    all: unset; /* Премахва ВСИЧКИ дефолтни стилове на браузъра */
+    display: inline-flex; /* За да подредим снимката централно */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* да остане усещането за бутон */
+}
+
+    .search-btn:focus {
+        border: none;
+    }
+
+/*за предположенията*/
+.suggestions {
+    top: 100%;
+    left: 0;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+    .suggestions div {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+        }
+/*search bar finished*/
+
+.logo {
+    position: absolute;
+    left: 48%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: auto;
+    max-width: 100%;
+}
+
+/*header-right-site for signin and dark mode*/
+.header-right-site {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.header-right-site-up {
+    /* display: none; don't visible*/
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.header-right-site-down {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/*log in/out */
+.log-in, .log-out {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #3d3a4e;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    display: flex; /* Добавено за центриране по вертикала */
+    align-items: center; /* Добавено за центриране по вертикала */
+    justify-content: center; /* Добавено за центриране по хоризонтала */
+    z-index: 0;
+}
+
+.log-in:hover::before, .log-out:hover::before {
+    transform: scaleX(1);
+}
+
+.log-in-content, .log-out-content {
+    position: relative;
+    z-index: 2; /* Важно! по-голям от ::before */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.log-in::before, .log-out::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient( 82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3% );
+    transition: all 0.475s;
+    z-index: 1; /* ::before е под текста */
+    pointer-events: none; /* ВАЖНО! За да не блокира текста */
+}
+
+/*log in/out finished*/
+
+/*management-btn*/
+.management-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background: #3d3a4e;
+    border: none;
+    border-radius: 25px; /* Заоблени краища */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Лека сянка */
+    transition: all 0.3s ease-in-out; /* Плавни анимации */
+    cursor: pointer;
+}
+
+    .management-btn:hover {
+        background: linear-gradient( 82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* По-голяма сянка */
+        transform: scale(1.1); /* Леко уголемяване */
+    }
+
+    .management-btn:active {
+        transform: scale(0.95); /* Леко свиване при натискане */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Намаляване на сянката */
+    }
+
+/*management-btn finished*/
+
+h1 {
+    font-family: cursive;
+}
+
+/*dark mode*/
+label {
+    width: 120px;
+    height: 50px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 100px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+    label::after {
+        content: "";
+        width: 49px;
+        height: 49px;
+        position: absolute;
+        top: 0px;
+        left: 6px;
+        background: linear-gradient(180deg,#ffcc89,#d8860b);
+        border-radius: 49px;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+.input-d-mode {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+    .input-d-mode:checked + label {
+        background-color: #242424;
+    }
+
+        .input-d-mode:checked + label::after {
+            left: 120px;
+            transform: translateX(-105%);
+            background: linear-gradient(180deg,#777,#3a3a3a);
+        }
+
+label:active:after {
+    width: 100px;
+}
+
+label svg {
+    position: absolute;
+    width: 50px;
+    top: -375px;
+    z-index: 100;
+    pointer-events: none; /* SVG елементите няма да прихващат кликове */
+}
+
+    label svg.sun {
+        left: 5px;
+        transition: 0.3s
+    }
+
+    label svg.moon {
+        left: 70px;
+        transition: 0.3s;
+    }
+/* dark mode finished*/
+
+.home-main {
+    width: 100%;
+    display: flex;
+    background: white;
+    color: black;
+    /* display: grid;
+    grid-template-columns: 25% 50% 25%;
+    gap: 20px; */
+}
+/*left site of main*/
+.left-side {
+    width: 23%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: 20px;
+}
+/*left site of main finished*/
+
+/*centef of main*/
+.center {
+    padding-top: 10px;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+/*center of main finished*/
+
+/*RIGHT SITE OF PAGE*/
+/*right site of main*/
+.right-side {
+    width: 25%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* Подрежда елементите вертикално */
+    align-items: center; /* Подравнява бутоните отляво (по желание) */
+    /*gap: 15px;*/ /* Разстояние между елментите */
+    /*margin: 1rem;*/ /* Отстояние от контейнера или страницата */
+    background-color: white;
+}
+
+.UEFA-border {
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    margin: 0.5rem;
+}
+
+.UEFA-logo-name {
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    display: flex;
+    font-weight: bold;
+}
+
+    .UEFA-logo-name img {
+        width: 60px;
+        height: 27px;
+    }
+
+.right-side button {
+    width: 210px;
+    max-width: 100%;
+    flex: 1;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(180deg, #b1b0b0, #d1d1d1);
+    color: #e0a806;
+    transition: 0.3s;
+    border-radius: 10px;
+    overflow: hidden; /* Предотвратява мърдане на страницата */
+    box-sizing: border-box;
+}
+
+.btn-UEFA {
+    display: flex;
+    flex-direction: column; /* Подрежда елементите вертикално */
+    padding-left: 10px;
+    gap: 15px; /* Разстояние между бутоните и изображението */
+}
+
+.btn-UEFA-player {
+    /* background: url('https://img.uefa.com/imgml/uefacom/elements/fallbacks/fallback.jpg');
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; */
+    background-color: #777;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    /* gap: 1px; */
+    align-items: center;
+    height: 200px;
+    overflow: hidden;
+}
+
+.player-UEFA {
+    width: auto;
+    height: 100%;
+    z-index: 1;
+    /* filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3)); */
+}
+
+.player-link {
+    width: auto;
+    height: 100%;
+    z-index: 1;
+}
+
+.button-icon {
+    width: 30px;
+    height: 30px;
+    /*padding: auto;*/
+    vertical-align: middle;
+    object-fit: cover;
+}
+/*champ, europa, conf league btn*/
+.ConferenceLeague-matches, .EuropaLeague-matches, .ChampionsLeague-matches {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #005bb5;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+    .ConferenceLeague-matches:hover, .EuropaLeague-matches:hover, .ChampionsLeague-matches:hover {
+        color: #fff;
+        transform: scale(1.07);
+    }
+
+    .ConferenceLeague-matches::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -2;
+        border-radius: 10px;
+        background: linear-gradient(to right, green, black);
+    }
+
+    .ConferenceLeague-matches:hover::before {
+        border-radius: 10px;
+        background: linear-gradient(to right, green, black);
+    }
+
+    .EuropaLeague-matches::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -2;
+        border-radius: 10px;
+        background: linear-gradient(to right, #ffa200, black);
+    }
+
+    .EuropaLeague-matches:hover::before {
+        border-radius: 10px;
+        background: linear-gradient(to right, #ffa200, black);
+    }
+
+    .ChampionsLeague-matches::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -2;
+        border-radius: 10px;
+        background: linear-gradient(to right, #510080, blue);
+    }
+
+    .ChampionsLeague-matches:hover::before {
+        border-radius: 10px;
+        background: linear-gradient(to right, #510080, blue);
+    }
+
+/*advertisement right-side*/
+.advertisement-right {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+    .advertisement-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+/*advertisement right-side finish*/
+
+/*right site of main finished*/
+/*RIGHT SITE OF PAGE ^*/
+
+/*CENTER PART OF PAGE*/
+/*calendar*/
+.calendar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.day {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid #ddd;
+    background: linear-gradient(180deg, #b1b0b0, #d1d1d1);
+    color: #e0a806;
+    /* background: linear-gradient(180deg, #0074e8, #004a99);
+    color: white; */
+
+    transition: 0.3s;
+}
+
+    .day:last-child {
+        border-right: none;
+    }
+
+    .day .day-name {
+        font-size: 16px;
+    }
+
+    .day .date {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff;
+    }
+
+    .day:hover {
+        /* background: #005bb5; */
+        background: #919191;
+        color: #fff;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*calendar finished*/
+
+/*league button*/
+.league-container {
+    width: 100%;
+    display: flex;
+    margin-top: 12px;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.league {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid #ddd;
+    /* background: linear-gradient(180deg, #0074e8, #004a99);
+    color:white; */
+    background: linear-gradient(180deg, #b1b0b0, #d1d1d1);
+    color: #e0a806;
+    transition: 0.3s;
+}
+
+    .league:last-child {
+        border-right: none;
+    }
+
+    .league .league-name {
+        font-size: 16px;
+    }
+
+    .league:hover {
+        background: #919191;
+        color: #fff;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+/*league button finished*/
+
+/*dropdown menu for btn today matches*/
+.dropdown {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-top: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: visible; /* Важно: Трябва да е visible, за да се покаже менюто */
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Dropdown бутон */
+.dropdown-button {
+    /* background: linear-gradient(180deg, #0074e8, #004a99);
+    color: white; */
+    background: linear-gradient(180deg, #b1b0b0, #d1d1d1);
+    color: #e0a806;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    border-radius: 10px; /* Заоблени ъгли на бутона */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+    /* Hover ефект за бутона */
+    .dropdown-button:hover {
+        background: #919191;
+        color: #f9f9f9;
+        transform: scale(1.05);
+    }
+
+/* Съдържание на dropdown */
+.dropdown-content {
+    display: none; /* Скрита по подразбиране */
+    position: absolute; /* Позиционирана спрямо контейнера */
+    top: 100%; /* Под бутона */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 100%; /* Да съвпада с ширината на бутона */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 0; /* Вътрешен отстъп между елементите */
+}
+
+    /* Елементи вътре в менюто */
+    .dropdown-content p {
+        margin: 0;
+        padding: 10px 20px; /* Разстояние вътре в елементите */
+        color: #333;
+        text-align: left;
+        cursor: pointer;
+    }
+
+        /* Hover ефект за елементите */
+        .dropdown-content p:hover {
+            background-color: #f1f1f1;
+        }
+
+/* Показване на dropdown менюто при hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Показва се менюто */
+}
+/*dropdown menu finished*/
+
+/*test fixtures div*/
+.match {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+    .match:hover {
+        background: #e0e0e0;
+    }
+
+.match-details-container {
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background: #ddd;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .tab.active {
+        background: #bbb;
+        font-weight: bold;
+    }
+
+.match-details {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    background: #fff;
+}
+
+.match-info {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background: #fff;
+}
+/*CENTER SIDE OF PAGE ^*/
+
+/*left side of main*/
+.banner {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    max-width: 220px;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.arrow {
+    pointer-events: all;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+    .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+/*left side */
+
+/*code form footer*/
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+    .footer-section h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #f4c10f;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+            .footer-section ul li a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+                .footer-section ul li a:hover {
+                    text-decoration: underline;
+                }
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+    .social-links li {
+        display: inline;
+    }
+
+footer form {
+    display: flex;
+    flex-direction: column;
+}
+
+    footer form input[type="email"] {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 4px;
+    }
+
+    footer form button {
+        padding: 8px;
+        border: none;
+        background-color: #f4c10f;
+        color: #333;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        footer form button:hover {
+            background-color: #e0a806;
+        }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+
+@media (max-width: 1000px) {
+    body {
+        background-color: black;
+    }
+}
+
+@media (max-width: 768px) {
+    .right-side {
+        max-width: 100%; /* Заема цялата ширина на екрана */
+    }
+
+    .btn-UEFA {
+        gap: 10px; /* Намалява разстоянието между бутоните */
+    }
+
+    button {
+        padding: 8px 15px; /* Намалява размера на бутоните */
+        font-size: 14px; /* Намалява текста */
+    }
+
+    .button-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .player-UEFA {
+        margin-top: 15px;
+    }
+}
+
+@media(max-width: 1380px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .right-side {
+        grid-column: 1 / span 2; /* Дясната част да заеме цялата ширина под другите */
+    }
+}
+/* for sign in
+.class{
+    backdrop-filter: b;ur(10px);  
+*/

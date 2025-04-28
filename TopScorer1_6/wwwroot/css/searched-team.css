@@ -1,0 +1,117 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #e74c3c;
+}
+
+ul {
+    align-items:center;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.match-box {
+    width: 80%; /* Определяме ширината на match-box елемента */
+    margin: 15px auto; /* Центрираме по хоризонтала, като задаваме автоматичен ляв и десен маргин */
+    background-color: #ecf0f1; /* Това е за визуализация, може да го промените */
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центриране на съдържанието */
+}
+
+h3 {
+    font-size: 1.6em;
+    color: #2980b9;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+ul li ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+    /* Стилизиране на линковете (един под друг, без синьо) */
+    ul li ul a {
+        background-color: #ecf0f1;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        display: block;
+        color: #34495e;
+        text-decoration: none;
+        font-size: 1em;
+    }
+
+        /* По избор: hover ефект */
+        ul li ul a:hover {
+            background-color: #d0d7de;
+            color: #2c3e50;
+        }
+
+        /* За елементите вътре в линка */
+        ul li ul a span.time,
+        ul li ul a span.date {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-right: 10px;
+        }
+
+        ul li ul a span.score {
+            font-weight: bold;
+            color: #27ae60;
+            margin-left: 10px;
+        }
+
+ul li p {
+    color: #e67e22;
+    font-style: italic;
+}
+
+button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #3498db;
+    }
+
+strong {
+    color: #e74c3c;
+}
+
+a strong {
+    color: #e74c3c;
+    font-weight: bold;
+}

@@ -1,0 +1,328 @@
+﻿@model TopScorer1_6.ViewModels.AdminPanelViewModel
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>["Title"]</title>
+    <link href="~/css/admin-panel.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="images/logo-topScorer.png" alt="logo">
+            <h1>Admin Panel</h1>
+        </div>
+        <hr>
+    </header>
+    <main>
+        <div class="left-side">
+            <img src="~/Images/virgil-van-dijk.png"/>
+        </div>
+
+        <form asp-controller="AdminPanel" asp-action="AddMatch" method="post">
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    Моля, поправи грешките във формата.
+                </div>
+            }
+
+            @* взема лигата *@
+            <div class="center">
+                <div class="inputGroup" id="input-one">
+                    <input id="leagueInput" asp-for="LeagueId" type="number" required="" autocomplete="off" list="items">
+                    <label asp-for="LeagueId">League(id)</label>
+                    <datalist id="items">
+                        <option value=4>Premier League</option>
+                        <option value="3">Ligue 1</option>
+                        <option value="2">La Liga</option>
+                        <option value="1">Bundesliga</option>
+                        <option value="5">Seria A</option>
+                        <option value="6">Conference League</option>
+                        <option value="7">Europa League</option>
+                    </datalist>
+                </div>
+
+                @* взема дата и час *@
+                <div class="form-style">
+                    <p>Date/Time</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="MatchDate" type="text" required="" autocomplete="off">
+                            <label asp-for="MatchDate" for="name">Date (yyyy-mm-dd)</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="MatchTime" type="text" required="" autocomplete="off">
+                            <label asp-for="MatchTime" for="name">Time</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Падащи менюта за отбори -->
+                <div class="form-style">
+                    <p>Team Name (id)</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <select asp-for="HomeTeamId" id="homeTeamsSelect" required>
+                                <option value="">HT</option>
+                                @*  вижда се само името на отбора, но се запазва id в базата *@
+                            </select>
+                        </div>
+                        <div class="inputGroup">
+                            
+                            <select asp-for="AwayTeamId" id="awayTeamsSelect" required>
+                                <option value="">AT</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p>*HT = Home Team*</p>
+                    <p>*AT = Away Team*</p>
+                </div>
+
+                @* взема резултат на полувреме *@
+                <div class="form-style">
+                    <p>Half Time Result</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HalfTimeHomeGoal" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HalfTimeHomeGoal" for="name">HT</label>
+                            <datalist id="items-num">
+                                @* възможност за избор без да се въвеждат данни от клавиатурата *@
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+
+                            </datalist>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="HalfTimeAwayGoal" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HalfTimeAwayGoal" for="name">AT</label>
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                        <input asp-for="HalfTimeResultId" type="text" required="" autocomplete="off" list="items-h-d-a">
+                        <label asp-for="HalfTimeResultId" for="name">HTR (H, D, A)</label>
+                        <datalist id="items-h-d-a">
+                            <option value="1">H</option>
+                            <option value="3">D</option>
+                            <option value="2">A</option>
+                        </datalist>
+                    </div>
+                    <p>*HTR = Half Time Result (H=Home Win, D=Draw, A=Away Win)*</p>
+                </div>
+
+                @* взема крайният резултат *@
+                <div class="form-style">
+                    <p>Full Time Result</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="FullTimeHomeGoal" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="FullTimeHomeGoal" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="FullTimeAwayGoal" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="FullTimeAwayGoal" for="name">AT</label>
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                        <input asp-for="FullTimeResultId" type="text" required="" autocomplete="off" list="items-h-d-a">
+                        <label asp-for="FullTimeResultId" for="name">FTR (H, D, A)</label>
+                    </div>
+                    <p>*FTR = Full Time Result (H=Home Win, D=Draw, A=Away Win)*</p>
+                </div>
+
+                <div class="inputGroup" id="input-one">
+                    @* показва само имената, но записва id в базата, използва js *@
+                    <select asp-for="RefereeId" id="refereeSelect" required>
+                        <option value="">Referee</option>
+                    </select>
+                </div>
+
+                @* взема ударите *@
+                <div class="form-style">
+                    <p>Shot/s</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeShot" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeShot" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayShot" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayShot" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* взема точните удари *@
+                <div class="form-style">
+                    <p>Shot/s on target</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeShotTarget" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeShotTarget" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayShotTarget" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayShotTarget" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* взема фаловете *@
+                <div class="form-style">
+                    <p>Fouls</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeFoul" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeFoul" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayFoul" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayFoul" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* взема корнерите *@
+                <div class="form-style">
+                    <p>Corners</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeCorner" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeCorner" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayCorner" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayCorner" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* взема жълтите картони *@
+                <div class="form-style">
+                    <p>Yellow Card/s</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeYellowCard" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeYellowCard" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayYellowCard" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayYellowCard" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* взема червените картони *@
+                <div class="form-style">
+                    <p>Red Card/s</p>
+                    <div class="two-input">
+                        <div class="inputGroup">
+                            <input asp-for="HomeRedCard" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="HomeRedCard" for="name">HT</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input asp-for="AwayRedCard" type="text" required="" autocomplete="off" list="items-num">
+                            <label asp-for="AwayRedCard" for="name">AT</label>
+                        </div>
+
+                    </div>
+                </div>
+                @* записва информацията в базата *@
+                <button type="submit" class="btn-database">
+                    <span class="circle1"></span>
+                    <span class="circle2"></span>
+                    <span class="circle3"></span>
+                    <span class="circle4"></span>
+                    <span class="circle5"></span>
+                    <span class="text">Submit</span>
+                </button>
+            </div>
+        </form>
+        
+        <div class="right-side">
+            <img src="~/Images/KM9.png" />
+        </div>
+    </main>
+
+    @* <script src="~/js/site.js" asp-append-version="true"></script> *@
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+                const leagueInput = document.getElementById("leagueInput");
+                const homeTeamsSelect = document.getElementById("homeTeamsSelect");
+                const awayTeamsSelect = document.getElementById("awayTeamsSelect");
+
+                leagueInput.addEventListener("change", function () {
+                    const leagueId = leagueInput.value;
+                    console.log("Selected league ID:", leagueId);
+                    if (!leagueId) return;
+
+                    fetch(`/AdminPanel/GetTeamsByLeague?leagueId=${leagueId}`)
+                        .then(response => response.json())
+                        .then(teams => {
+                            console.log("Teams received:", teams);
+
+                            // Направи падащото меню за homeTeamsSelect
+                            const homeOptions = teams.map(t =>
+                                `<option value="${t.teamId}">${t.teamName}</option>`
+                            ).join('');
+                            homeTeamsSelect.innerHTML=`<option value="">-- Select a team --</option>` + homeOptions;
+
+                            // Направи падащото меню за awayTeamsSelect
+                            const awayOptions = teams.map(t =>
+                                `<option value="${t.teamId}">${t.teamName}</option>`
+                            ).join('');
+                            awayTeamsSelect.innerHTML=`<option value="">-- Select a team --</option>` + awayOptions;
+                        })
+                        .catch(err => console.error("Error fetching teams:", err));
+                });
+
+                //for referee
+                    const refereeSelect = document.getElementById("refereeSelect");
+
+                    fetch(`/AdminPanel/GetReferees`)
+                        .then(response => response.json())
+                        .then(referees => {
+                            const options = referees.map(ref =>
+                                `<option value="${ref.refereeId}">${ref.refereeName}</option>`
+                            ).join('');
+                            refereeSelect.innerHTML = options;
+                        })
+                        .catch(error => console.error('Error loading referees:', error));
+            });
+    </script>
+</body>
+</html>
+

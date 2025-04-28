@@ -1,0 +1,85 @@
+﻿@model List<TopScorer1_6.Models.MatchModels.Team>
+@using TopScorer1_6.ViewModels
+<header>
+    <link rel="stylesheet" href="~/css/searched-team.css">
+    @{
+        var matches = ViewBag.Matches as List<MatchViewModel>;
+        var query = Context.Request.Query["query"].ToString();  
+    }
+</header>
+<body>
+    <h2>Резултати</h2>
+
+    @if (!Model.Any())
+    {
+        <p>Няма резултати за това търсене.</p>
+    }
+    else
+    {
+        <ul>
+            @{
+                var searchedTeamId = ViewBag.SearchedTeamId as int? ?? -1;
+            }
+            @foreach (var team in Model)
+            {
+                <li>
+                    <h3>@team.Name</h3>
+
+                    @{ //problem maybe in this part or SearchedTeamController
+                        var teamMatches = matches
+                        .Where(m => m.HomeTeamId == team.Id || m.AwayTeamId == team.Id)
+                        .OrderBy(m => m.MatchDate)
+                        .ThenBy(m => m.MatchTime)
+                        .ToList();
+                    }
+
+                    @if (teamMatches.Any())
+                    {
+                        <ul>
+                            @foreach (var match in teamMatches)
+                            {
+                                <li class="match-box">
+                                        <a asp-controller="FullMatchInfo" asp-action="ShowFullInfo" asp-route-id="@match.Id">
+                                        <span class="date">@match.MatchDate</span>
+                                        <span class="time">@match.MatchTime</span>
+
+                                        <span>
+                                            @* do not work *@
+                                            @if (match.HomeTeamId == searchedTeamId)
+                                            {
+                                                <strong>@match.HomeTeamName</strong>
+                                            }
+                                            else
+                                            {
+                                                @match.HomeTeamName
+                                            }
+                                            vs
+                                            @if (match.AwayTeamId == searchedTeamId)
+                                            {
+                                                <strong>@match.AwayTeamName</strong>
+                                            }
+                                            else
+                                            {
+                                                @match.AwayTeamName
+                                            }
+                                        </span>
+
+                                        <span class="score">@match.FullTimeHomeGoal - @match.FullTimeAwayGoal</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>Няма мачове за този отбор.</p>
+                    }
+                </li>
+            }
+
+        </ul>
+    }
+</body>
+
+
+

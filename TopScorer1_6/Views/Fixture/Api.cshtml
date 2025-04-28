@@ -1,0 +1,29 @@
+﻿<head>
+    <link href="~/css/fixture.css" rel="stylesheet" />
+</head>
+<body>
+    @model IEnumerable<dynamic>
+
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var match in Model)
+            {
+                <li>
+                    <a asp-controller="FullMatchInfo" asp-action="ShowNoInfo">
+                        <div class="fixture-box">
+                            <p> @match.MatchDate</p>
+                            <h3>@match.HomeTeam vs @match.AwayTeam</h3>
+                            <p>@match.FTHG - @match.FTAG</p>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No info for this date or league.</p>
+    }
+</body>
+

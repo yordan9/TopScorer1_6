@@ -1,0 +1,79 @@
+﻿/* Общи стилове за цялата страница */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333333; /* Тъмносив фон */
+    color: #e0a806; /* Златист текст */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #e0a806; /* Златист цвят за заглавията */
+}
+
+.about-us-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+    background-color: #444444; /* Тъмно сив фон за секцията */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .about-us-section h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .about-us-section p, .about-us-section ul {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+/* Линковете за социални медии */
+ul.social-links {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+    ul.social-links li {
+        margin: 10px 0;
+    }
+
+        ul.social-links li a {
+            color: #e0a806;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+            ul.social-links li a:hover {
+                text-decoration: underline;
+            }
+
+/* Логото */
+.logo-image {
+    display: block;
+    margin: 20px auto;
+    width: 200px; /* Задайте ширината според размера на логото */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Адаптивност на страницата */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .about-us-section {
+        margin: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}

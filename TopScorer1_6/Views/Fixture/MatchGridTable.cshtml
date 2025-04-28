@@ -1,0 +1,43 @@
+﻿<head>
+    <link href="~/css/match-grid-table.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="table-container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th></th>
+                    @foreach (var colTeam in Model.Teams)
+                    {
+                        <th title="@colTeam">@Model.TeamAbbreviations[colTeam]</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rowTeam in Model.Teams)
+                {
+                    <tr>
+                        <td><strong>@rowTeam</strong></td>
+                        @foreach (var colTeam in Model.Teams)
+                        {
+                            if (rowTeam == colTeam)
+                            {
+                                <td style="background-color:lightgray;"></td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @{
+                                        var key = new ValueTuple<string, string>(rowTeam, colTeam);
+                                    }
+                                    @(Model.Results.ContainsKey(key) ? Model.Results[key] : "")
+                                </td>
+
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

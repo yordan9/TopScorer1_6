@@ -1,0 +1,247 @@
+﻿body, html {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #f4f4f4; /* Светлосив фон за по-чист и модерен вид */
+}
+
+/*header code*/
+.logo-title {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+}
+
+    .logo-title.h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .logo-title img {
+        width: 75px;
+        height: 50px;
+    }
+/*header code finished*/
+
+/*main code*/
+main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+/*main code finished*/
+
+/*left, right, center side of main*/
+.center {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-side, .right-side {
+    width: 25%;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex; /* Стойност flex за позициониране */
+    justify-content: center; /* Центриране на снимката хоризонтално */
+    align-items: flex-end; /* Позициониране на снимката в долната част */
+    height: 100%; /* Запълва височината на родителския контейнер */
+}
+
+    .left-side img, .right-side img {
+        max-width: 100%; /* Осигурява, че снимката няма да надвишава контейнера */
+        height: auto; /* Спазва пропорциите на изображението */
+        
+    }
+/*left, right side of page finished*/
+
+/*THE ELEMENTS OF .LEFT-SIDE*/
+.server {
+    text-align: center;
+}
+/*THE ELEMENTS OF .LEFT-SIDE FINISH*/
+
+/*THE ELEMENTS OF .CENTER*/
+/*form code*/
+.form-style {
+    padding: 1rem;
+    margin: 1rem;
+    width: 85%;
+    border: 1px solid black;
+}
+
+    .form-style p {
+        padding-left: 0.5rem;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+/*form code finished*/
+
+/*div two-input or one-input code*/
+.two-input {
+    display: flex;
+    justify-content: center;
+    font-size: 100%;
+    padding-top: 0.4rem;
+    /* flex-wrap: wrap; if leave from form go to the down */
+}
+
+    .two-input input {
+        width: 100%;
+        justify-content: center;
+    }
+
+/*div two-input or one-input code finished*/
+
+/*input's code*/
+.inputGroup {
+    max-width: 100%;
+    position: relative;
+    padding: 0.6rem;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    text-align: center;
+}
+
+    .inputGroup input {
+        font-size: 100%;
+        height: 3rem;
+        outline: none;
+        border: 2px solid rgb(200, 200, 200);
+        background-color: transparent;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .inputGroup label {
+        font-size: 100%;
+        position: absolute;
+        left: 1rem;
+        top: 15%;
+        padding: 0.9em;
+        margin-left: 0.5em;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        color: rgb(100, 100, 100);
+    }
+
+    .inputGroup :is(input:focus, input:valid) ~ label {
+        transform: translateY(-50%) scale(.9);
+        margin: 0em;
+        margin-left: 1em;
+        padding: 0.4em;
+        background-color: #e8e8e8;
+    }
+
+    .inputGroup :is(input:focus, input:valid) {
+        border-color: rgb(150, 150, 200);
+    }
+
+    .inputGroup select {
+        font-size: 100%;
+        height: 3rem;
+        outline: none;
+        border: 2px solid rgb(200, 200, 200);
+        background-color: transparent;
+        border-radius: 20px;
+        text-align: center;
+        padding: 0 1rem;
+        appearance: none; /* Премахва стрелката по подразбиране (за Chrome, Firefox) */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+        .inputGroup select:focus {
+            border-color: rgb(150, 150, 200);
+        }
+
+/*input's code finished*/
+
+/*btn submit code*/
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #171717;
+    padding: 1em 2em;
+    border: none;
+    border-radius: .6rem;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+}
+
+    button span:not(:nth-child(6)) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 30px;
+        width: 30px;
+        background-color: #0c66ed;
+        border-radius: 50%;
+        transition: .6s ease;
+    }
+
+    button span:nth-child(6) {
+        position: relative;
+    }
+
+    button span:nth-child(1) {
+        transform: translate(-3.3em, -4em);
+    }
+
+    button span:nth-child(2) {
+        transform: translate(-6em, 1.3em);
+    }
+
+    button span:nth-child(3) {
+        transform: translate(-.2em, 1.8em);
+    }
+
+    button span:nth-child(4) {
+        transform: translate(3.5em, 1.4em);
+    }
+
+    button span:nth-child(5) {
+        transform: translate(3.5em, -3.8em);
+    }
+
+    button:hover span:not(:nth-child(6)) {
+        transform: translate(-50%, -50%) scale(4);
+        transition: 1.5s ease;
+    }
+/*btn submit code finish*/
+/*THE ELEMENTS OF .CENTER*/
+
+.alert {
+    text-align: center; /* центрира текста вътре */
+    margin: 20px auto; /* центрира самия контейнер */
+    padding: 15px 20px;
+    max-width: 600px; /* не позволява да стане много широк */
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+    /* Стил за успех */
+    .alert.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    /* Стил за грешка */
+    .alert.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }

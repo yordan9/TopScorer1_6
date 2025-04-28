@@ -1,0 +1,69 @@
+﻿<header>
+    <link rel="stylesheet" href="~/css/full-info-match.css">
+</header>
+<body>
+    <div class="match-info-box">
+        <h2>@Model.HomeTeam vs @Model.AwayTeam</h2>
+
+        <div>
+            <p>Date</p>
+            <p>@Model.MatchDate.ToShortDateString()</p>
+        </div>
+
+        <div>
+            <p>Hour</p>
+            <p>@Model.MatchTime</p>
+        </div>
+
+        <div>
+            <p>League</p>
+            <p>@Model.LeagueName</p>
+        </div>
+
+        <div>
+            <p>Full-time result</p>
+            <p>@Model.FTHG - @Model.FTAG (@Model.FTLetter)</p>
+        </div>
+
+        <div>
+            <p>Half-time result</p>
+            <p>@Model.HTHG - @Model.HTAG (@Model.HTLetter)</p>
+        </div>
+
+        <div>
+            <p>Referee</p>
+            <p>@Model.Referee</p>
+        </div>
+
+        <div>
+            <p>Total shot/s</p>
+            <p>@Model.HomeShot - @Model.AwayShot</p>
+        </div>
+
+        <div>
+            <p>Shot/s on target</p>
+            <p>@Model.HomeShotTarget - @Model.AwayShotTarget</p>
+        </div>
+
+        <div>
+            <p>Foul/s</p>
+            <p>@Model.HomeFoul - @Model.AwayFoul</p>
+        </div>
+
+        <div>
+            <p>Corner/s</p>
+            <p>@Model.HomeCorner - @Model.AwayCorner</p>
+        </div>
+
+        <div>
+            <p>Yellow card/s</p>
+            <p>@Model.HomeYellowCard - @Model.AwayYellowCard</p>
+        </div>
+
+        <div>
+            <p>Red card/s</p>
+            <p>@Model.HomeRedCard - @Model.AwayRedCard</p>
+        </div>
+    </div>
+
+</body>

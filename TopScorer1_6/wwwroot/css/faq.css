@@ -1,0 +1,54 @@
+﻿/* Основни стилове за фон и текст */
+body {
+    background-color: #333333; /* Тъмносив фон */
+    color: #e0a806; /* Златист текст */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Заглавия на страницата */
+h1 {
+    text-align: center;
+    color: #e0a806;
+}
+
+/* Стил за всяко FAQ заглавие */
+section h2 {
+    color: #e0a806; /* Златист цвят за въпросите */
+    margin-top: 20px;
+}
+
+/* Стил за отговорите */
+section p {
+    color: #aaaaaa; /* Сив текст за отговорите */
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Стил за линкове */
+a {
+    color: #e0a806; /* Златист цвят за линковете */
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline; /* Подчертаване при hover */
+    }
+
+/* Малко пространство между секциите */
+section {
+    margin-bottom: 20px;
+}
+
+    /* Стил за hover ефект върху всяко FAQ */
+    section:hover {
+        background-color: #444444;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    /* Стил за линковете за контакт */
+    section p a {
+        color: #e0a806;
+    }

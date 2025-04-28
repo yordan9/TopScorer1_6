@@ -1,0 +1,14 @@
+﻿@model List<APIFixture>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var match in Model)
+    {
+        <p>@match.LocalDateTime.ToLocalTime().ToString("HH:mm") <strong>@match.HomeTeam.Name</strong> vs <strong>@match.AwayTeam.Name</strong></p>
+    }
+}
+else
+{
+    <p>There is no derby today.</p>
+}
+

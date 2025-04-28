@@ -1,0 +1,141 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TopScorer1_6.bundle.scp.css",
+      "PackagePath": "staticwebassets\\TopScorer1_6.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\Armando_Broja_profile_2024-25_avatar-removebg.png",
+      "PackagePath": "staticwebassets\\Images\\Armando_Broja_profile_2024-25_avatar-removebg.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\Axel_Disasi.png",
+      "PackagePath": "staticwebassets\\Images\\Axel_Disasi.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\KM9.png",
+      "PackagePath": "staticwebassets\\Images\\KM9.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\MSalah.png",
+      "PackagePath": "staticwebassets\\Images\\MSalah.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\Search.png",
+      "PackagePath": "staticwebassets\\Images\\Search.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\UEFA_Champions_League.png",
+      "PackagePath": "staticwebassets\\Images\\UEFA_Champions_League.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\Uefa_2013.png",
+      "PackagePath": "staticwebassets\\Images\\Uefa_2013.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\ad-client.png",
+      "PackagePath": "staticwebassets\\Images\\ad-client.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\adv-employer.png",
+      "PackagePath": "staticwebassets\\Images\\adv-employer.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\alphonso-davis.png",
+      "PackagePath": "staticwebassets\\Images\\alphonso-davis.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\avdContentManager.png",
+      "PackagePath": "staticwebassets\\Images\\avdContentManager.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\kevin-de-bruyne.png",
+      "PackagePath": "staticwebassets\\Images\\kevin-de-bruyne.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\leao-carosel.png",
+      "PackagePath": "staticwebassets\\Images\\leao-carosel.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\logo-topScorer.png",
+      "PackagePath": "staticwebassets\\Images\\logo-topScorer.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\uefa-europa-conference-league-logo-512x512.png",
+      "PackagePath": "staticwebassets\\Images\\uefa-europa-conference-league-logo-512x512.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\uefa-europa-league-2016-logo-png_seeklogo-285940.png",
+      "PackagePath": "staticwebassets\\Images\\uefa-europa-league-2016-logo-png_seeklogo-285940.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\Images\\virgil-van-dijk.png",
+      "PackagePath": "staticwebassets\\Images\\virgil-van-dijk.png"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\about-us.css",
+      "PackagePath": "staticwebassets\\css\\about-us.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\admin-panel.css",
+      "PackagePath": "staticwebassets\\css\\admin-panel.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\faq.css",
+      "PackagePath": "staticwebassets\\css\\faq.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\fixture.css",
+      "PackagePath": "staticwebassets\\css\\fixture.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\full-info-match.css",
+      "PackagePath": "staticwebassets\\css\\full-info-match.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\log-in.css",
+      "PackagePath": "staticwebassets\\css\\log-in.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\match-grid-table.css",
+      "PackagePath": "staticwebassets\\css\\match-grid-table.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\privacy.css",
+      "PackagePath": "staticwebassets\\css\\privacy.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\searched-team.css",
+      "PackagePath": "staticwebassets\\css\\searched-team.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\12 клас професия\\Software engineering\\TopScorer1_6\\TopScorer1_6\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TopScorer1_6.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TopScorer1_6.props",
+      "PackagePath": "build\\TopScorer1_6.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TopScorer1_6.props",
+      "PackagePath": "buildMultiTargeting\\TopScorer1_6.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TopScorer1_6.props",
+      "PackagePath": "buildTransitive\\TopScorer1_6.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

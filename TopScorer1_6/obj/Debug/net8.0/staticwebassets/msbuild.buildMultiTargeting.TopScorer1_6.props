@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TopScorer1_6.props" />
+</Project>

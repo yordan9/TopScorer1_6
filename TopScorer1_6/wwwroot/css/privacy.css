@@ -1,0 +1,95 @@
+﻿/* Общи стилове за цялата страница */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333333; /* Тъмносив фон */
+    color: #e0a806; /* Златист текст */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Заглавия */
+h1, h2 {
+    text-align: center;
+    color: #e0a806; /* Златист цвят за заглавията */
+}
+
+/* Стилове за разделите на страницата */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: #444444; /* Тъмно сив фон за секциите */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    section h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    section p, section ul {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+/* Линковете */
+a {
+    color: #e0a806; /* Златист цвят за линковете */
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Списъци */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+    /* Контейнери за информация */
+    ul li {
+        margin-bottom: 10px;
+    }
+
+/* Добавяне на външен ръб на страницата за контекст */
+header {
+    background-color: #222222;
+    padding: 20px 0;
+    text-align: center;
+}
+
+    header h1 {
+        font-size: 32px;
+        color: #e0a806;
+    }
+
+p {
+    font-size: 18px;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Адаптивност на страницата */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        margin: 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
